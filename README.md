@@ -4,7 +4,7 @@
 
 lightweight react navigation components.
 
-![alt text](./react-navigations.png "@scripty/react-navigations")
+![alt text](./flyout.png "@scripty/react-navigations")
 
 # Usage
 ```bash
@@ -15,13 +15,13 @@ npm install -s @scripty/react-navigations
 
 ```javascript
 import React, { Fragment } from 'react';
-import { Navigations } from '@src';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Flyout } from '@src';
 
 export const Example = () => {
 
-    const onClick = (e) => {
-        console.log(e);
+    const onClick = (key) => {
+        console.log(key);
     }
 
     const routes = [
@@ -63,7 +63,7 @@ export const Example = () => {
     return (
         <Router>
             <h2>Flyout</h2>
-            <Navigations routes={routes} />
+            <Flyout onClick={onClick} routes={routes} />
         </Router>
     );
 };

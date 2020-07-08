@@ -1,9 +1,10 @@
 import React from 'react';
-import './Navigations.scss';
+import './Flyout.scss';
 import { NavLink } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
+import { IconExpandDown } from './Icon';
 
-export const Navigations = (props) => {
+export const Flyout = (props) => {
 
     const { routes, onClick } = props;
 
@@ -23,7 +24,7 @@ export const Navigations = (props) => {
             if (submenu) {
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className="dropbtn">{label} ^</a>
+                        <a href="#" className="dropbtn">{label} <IconExpandDown /></a>
                         <ul className="dropdown-content">
                             {renderMenu(submenu, currentPath)}
                         </ul>
@@ -36,16 +37,16 @@ export const Navigations = (props) => {
     );
 
     return (
-        <ul className={'menu'}>
+        <ul className={'flyout'}>
             {renderMenu(routes, '')}
         </ul>
     )
 };
 
-Navigations.defaultProps = {
+Flyout.defaultProps = {
     onClick: () => {},
 };
 
-Navigations.propTypes = {
+Flyout.propTypes = {
     onClick: PropTypes.func,
 };
