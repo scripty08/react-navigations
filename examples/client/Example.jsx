@@ -7,6 +7,7 @@ export const Example = () => {
     const [ selectedKeys, setSelectedKeys ] = useState([])
 
     const onClick = (key, selectedKeys) => {
+        console.log(selectedKeys, ' selectedKeys ---------------------- ');
         setSelectedKeys(selectedKeys);
     }
 

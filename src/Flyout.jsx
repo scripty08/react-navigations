@@ -22,7 +22,7 @@ export const Flyout = (props) => {
 
     const renderMenuItem = ({ key, label, path, exact, selectedKeys }) => (
         <li key={key}>
-            <NavLink onClick={onItemClick.bind(this, key, selectedKeys)} exact={exact} to={path}>
+            <NavLink onClick={onItemClick.bind(null, key, selectedKeys)} exact={exact} to={path}>
                 {label}
             </NavLink>
         </li>
@@ -30,17 +30,16 @@ export const Flyout = (props) => {
 
     const renderMenu = (routes, parentPath = '', index = 0) => {
 
-        selectedKeys = getActiveRoutes(routes, window.location, parentPath);
-
-
         return routes.map((route, idx) => {
             const { key, label, path, url, icon, submenu, exact } = route;
             const currentPath = parentPath + path;
 
-            if (submenu) {
+            selectedKeys = getActiveRoutes(routes, window.location, parentPath);
 
-                const isActive = selectedKeys.includes(key);
-                const activeClass = (isActive) ? 'dropbtn active' : 'dropbtn';
+            const isActive = selectedKeys.includes(key);
+            const activeClass = (isActive) ? 'dropbtn active' : 'dropbtn';
+
+            if (submenu) {
 
                 let expandIcon =  <IconExpandRight/>;
 
