@@ -14,14 +14,16 @@ npm install -s @scripty/react-navigations
 ##### Client: Example.jsx
 
 ```javascript
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Flyout } from '@src';
 
 export const Example = () => {
 
-    const onClick = (key) => {
-        console.log(key);
+    const [ selectedKeys, setSelectedKeys ] = useState([])
+
+    const onClick = (key, selectedKeys) => {
+        setSelectedKeys(selectedKeys);
     }
 
     const routes = [
@@ -63,7 +65,7 @@ export const Example = () => {
     return (
         <Router>
             <h2>Flyout</h2>
-            <Flyout onClick={onClick} routes={routes} />
+            <Flyout onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
         </Router>
     );
 };

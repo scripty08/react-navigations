@@ -2,7 +2,7 @@ import React from 'react';
 import './Flyout.scss';
 import { NavLink, matchPath } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
-import { IconExpandDown } from './Icon';
+import { IconExpandDown, IconExpandRight } from './Icon';
 
 export const Flyout = (props) => {
 
@@ -20,11 +20,12 @@ export const Flyout = (props) => {
         </li>
     );
 
-    const renderMenu = (routes, parentPath = '') => {
+    const renderMenu = (routes, parentPath = '', index = 0) => {
 
         selectedKeys = getActiveRoutes(routes, window.location, parentPath);
 
-        return routes.map(route => {
+
+        return routes.map((route, idx) => {
             const { key, label, path, url, icon, submenu, exact } = route;
             const currentPath = parentPath + path;
 
@@ -33,11 +34,21 @@ export const Flyout = (props) => {
                 const isActive = selectedKeys.includes(key);
                 const activeClass = (isActive) ? 'dropbtn active' : 'dropbtn';
 
+                let expandIcon =  <IconExpandRight/>;
+
+                let item = 'item';
+                if (index === 0) {
+                    item = 'item-' + index;
+                    expandIcon = <IconExpandDown/>;
+                }
+
+                index = index + 1;
+
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className={activeClass}>{label} <IconExpandDown/></a>
-                        <ul className="dropdown-content">
-                            {renderMenu(submenu, currentPath)}
+                        <a href="#" className={activeClass}>{label} {expandIcon}</a>
+                        <ul className={item}>
+                            {renderMenu(submenu, currentPath, index)}
                         </ul>
                     </li>
                 );
@@ -48,9 +59,11 @@ export const Flyout = (props) => {
     };
 
     return (
-        <ul className={'flyout'}>
-            {renderMenu(routes, '')}
-        </ul>
+        <nav className={'flyout'}>
+            <ul>
+                {renderMenu(routes, '')}
+            </ul>
+        </nav>
     )
 };
 

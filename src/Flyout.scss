@@ -1,76 +1,63 @@
-ul.flyout {
-    list-style-type: none;
-    height: 59px;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #fff;
-    font-size: 17px;
+nav.flyout {
 
-    li {
-        float: left;
+    .active {
+        background: #0e6ea8
     }
 
-    li a, .dropbtn {
-        display: inline-block;
-        color: #242424;
-        text-align: center;
-        padding: 23px 16px;
-        text-decoration: none;
-
-        & img {
-            vertical-align: middle;
-            margin: -19px 5px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        &.active {
-            background-color: #eee;
-        }
-    }
-
-    li a:hover, .dropdown:hover .dropbtn {
-        background-color: #e3e3e3;
-    }
-
-    li.dropdown {
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        list-style-type: none;
-        margin: -7px 0;
-        padding: 0;
-        overflow: hidden;
-
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        z-index: 1000;
-
-        a {
-            color: black;
-            padding: 15px 15px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-
-            &:hover {
-                background-color: #e3e3e3;
-            }
-        }
+    ul{
+        list-style: none;
 
         li {
-            float: none;
+            width: 120px;
+            background: #0080cd;
+            float: left;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            margin-right: 2px;
+            position: relative;
+
+            &:hover {
+                background: #0e6ea8;
+            }
+
+            &:hover ul {
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                font-family: sans-serif;
+                display: block;
+            }
+
+            ul {
+                display: none;
+                li {
+                    border-top: 1px solid #fff;
+
+                    &:hover {
+                        .item{display: block;}
+                    }
+                }
+            }
+
+            ul.item {
+                position: absolute;
+                left: 122px;
+                top: 0;
+                display: none;
+            }
+
         }
     }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
 }
+
+
+
+
+
+

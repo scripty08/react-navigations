@@ -33,14 +33,62 @@ export const Example = () => {
                     "component" : "Example1",
                     "label" : "Sample 1",
                     "path" : "/sample1",
-                    "access" : "Admin"
+                    "access" : "Admin",
+                    "submenu" : [
+                        {
+                            "key" : "SubExample1",
+                            "component" : "SubExample1",
+                            "label" : "SubSample 1",
+                            "path" : "/subsample1",
+                            "access" : "Admin"
+                        }
+                    ]
                 },
                 {
                     "key" : "Example2",
                     "component" : "Example2",
                     "label" : "Sample 2",
                     "path" : "/sample2",
-                    "access" : "Admin"
+                    "access" : "Admin",
+                    "submenu" : [
+                        {
+                            "key" : "SubSubExample1",
+                            "component" : "SubSubExample1",
+                            "label" : "SubSubSample 1",
+                            "path" : "/subsubsample1",
+                            "access" : "Admin"
+                        }
+                    ]
+                },
+                {
+                    "key" : "Example2q",
+                    "component" : "Example2q",
+                    "label" : "Sample 2q",
+                    "path" : "/sample2q",
+                    "access" : "Admin",
+                },
+                {
+                    "key" : "Examplex",
+                    "component" : "Examplex",
+                    "label" : "Sample x",
+                    "path" : "/samplex",
+                    "access" : "Admin",
+                    "submenu" : [
+                        {
+                            "key" : "SubSubExamplex1",
+                            "component" : "SubSubExamplex1",
+                            "label" : "SubSubSample x1",
+                            "path" : "/subsubsamplex1",
+                            "access" : "Admin"
+                        },
+                        {
+                            "key" : "SubSubExamplexx1",
+                            "component" : "SubSubExamplexx1",
+                            "label" : "SubSubSample xx1",
+                            "path" : "/subsubsamplexx1",
+                            "access" : "Admin"
+                        }
+                    ]
                 }
             ]
         }
