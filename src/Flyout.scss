@@ -1,24 +1,30 @@
 nav.flyout {
+    font-size: 14px;
+    display: block;
+    height: 59px;
+    width: 100%;
 
     .active {
-        background: #0e6ea8
+        background: #efefef;
+        height: 59px;
     }
 
     ul{
+        padding: 0;
+        margin: 0;
         list-style: none;
 
         li {
-            width: 120px;
-            background: #0080cd;
+            width: 160px;
+            background: #fff;
             float: left;
-            height: 35px;
-            line-height: 35px;
+            height: 59px;
+            line-height: 59px;
             text-align: center;
-            margin-right: 2px;
             position: relative;
 
             &:hover {
-                background: #0e6ea8;
+                background: #efefef;
             }
 
             &:hover ul {
@@ -28,7 +34,8 @@ nav.flyout {
             }
 
             a {
-                color: #fff;
+                padding-left: 15px;
+                color: #000;
                 text-decoration: none;
                 font-family: sans-serif;
                 display: block;
@@ -36,22 +43,44 @@ nav.flyout {
 
             ul {
                 display: none;
+                &.item-0 {
+                    content: '';
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                }
+
                 li {
-                    border-top: 1px solid #fff;
+                    text-align: left;
+                    a {
+                        padding-left: 15px;
+                        color: #000;
+                        text-decoration: none;
+                        font-family: sans-serif;
+                        display: block;
+                        span {
+                            display: inline-block;
+                            position: absolute;
+                            right: 5px;
+                        }
+                    }
 
                     &:hover {
-                        .item{display: block;}
+                        .item{
+                            display: block;
+                        }
                     }
                 }
             }
 
             ul.item {
                 position: absolute;
-                left: 122px;
+                left: 160px;
                 top: 0;
                 display: none;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             }
-
         }
     }
 }

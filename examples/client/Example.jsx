@@ -13,80 +13,60 @@ export const Example = () => {
     const routes = [
         {
             "key" : "Dashboard",
-            "component" : "Dashboard",
             "label" : "Dashboard",
             "icon" : "dashboard",
             "path" : "/",
-            "access" : "Visitor",
             "exact" : true
         },
         {
             "key" : "Example",
-            "component" : "#",
             "label" : "Example",
             "icon" : "experiment",
             "path" : "/example",
-            "access" : "Admin",
             "submenu" : [
                 {
-                    "key" : "Example1",
-                    "component" : "Example1",
-                    "label" : "Sample 1",
-                    "path" : "/sample1",
-                    "access" : "Admin",
+                    "key" : "Sub-1",
+                    "label" : "Sub 1",
+                    "path" : "/sub1",
                     "submenu" : [
                         {
-                            "key" : "SubExample1",
-                            "component" : "SubExample1",
-                            "label" : "SubSample 1",
-                            "path" : "/subsample1",
-                            "access" : "Admin"
+                            "key" : "Sub-1-1",
+                            "label" : "Sub-1-1",
+                            "path" : "/sub-1-1",
                         }
                     ]
                 },
                 {
-                    "key" : "Example2",
-                    "component" : "Example2",
-                    "label" : "Sample 2",
-                    "path" : "/sample2",
-                    "access" : "Admin",
+                    "key" : "Sub-2",
+                    "label" : "Sub-2",
+                    "path" : "/sub-2",
                     "submenu" : [
                         {
-                            "key" : "SubSubExample1",
-                            "component" : "SubSubExample1",
-                            "label" : "SubSubSample 1",
-                            "path" : "/subsubsample1",
-                            "access" : "Admin"
+                            "key" : "Sub-2-1",
+                            "label" : "Sub-2-1",
+                            "path" : "/sub-2-1",
                         }
                     ]
                 },
                 {
-                    "key" : "Example2q",
-                    "component" : "Example2q",
-                    "label" : "Sample 2q",
-                    "path" : "/sample2q",
-                    "access" : "Admin",
+                    "key" : "Sub-3",
+                    "label" : "Sub-3",
+                    "path" : "/sub-3",
                 },
                 {
-                    "key" : "Examplex",
-                    "component" : "Examplex",
-                    "label" : "Sample x",
-                    "path" : "/samplex",
-                    "access" : "Admin",
+                    "key" : "Sub-4",
+                    "label" : "Sub-4",
+                    "path" : "/sub-4",
                     "submenu" : [
                         {
-                            "key" : "SubSubExamplex1",
-                            "component" : "SubSubExamplex1",
-                            "label" : "SubSubSample x1",
-                            "path" : "/subsubsamplex1",
-                            "access" : "Admin"
+                            "key" : "Sub-4-1",
+                            "label" : "Sub-4-1",
+                            "path" : "/sub-4-1",
                         },
                         {
-                            "key" : "SubSubExamplexx1",
-                            "component" : "SubSubExamplexx1",
-                            "label" : "SubSubSample xx1",
-                            "path" : "/subsubsamplexx1",
-                            "access" : "Admin"
+                            "key" : "Sub-4-2",
+                            "label" : "Sub-4-2",
+                            "path" : "/sub-4-2",
                         }
                     ]
                 }

@@ -6,7 +6,15 @@ import { IconExpandDown, IconExpandRight } from './Icon';
 
 export const Flyout = (props) => {
 
-    let { routes, onClick, selectedKeys = [] } = props;
+    let {
+        routes,
+        onClick,
+        selectedKeys,
+        color,
+        width,
+        height,
+        style
+    } = props;
 
     const onItemClick = (key, selectedKeys) => {
         onClick(key, selectedKeys);
@@ -46,7 +54,7 @@ export const Flyout = (props) => {
 
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className={activeClass}>{label} {expandIcon}</a>
+                        <a href="#" className={activeClass}>{label} <span>{expandIcon}</span></a>
                         <ul className={item}>
                             {renderMenu(submenu, currentPath, index)}
                         </ul>
@@ -98,8 +106,23 @@ export const getActiveRoutes = (routes, location, parentPath = '') => {
 
 Flyout.defaultProps = {
     onClick: () => {},
+    color: {
+        backgroundColor: '',
+        backgroundHoverColor: '',
+        fontColor: '',
+        fontHoverColor: ''
+    },
+    selectedKeys: [],
+    width: '100%',
+    height: '59px',
+    style: {}
 };
 
 Flyout.propTypes = {
     onClick: PropTypes.func,
+    color: PropTypes.object,
+    selectedKeys: PropTypes.array,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    style: PropTypes.object
 };
