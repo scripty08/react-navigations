@@ -29,34 +29,62 @@ export const Example = () => {
     const routes = [
         {
             "key" : "Dashboard",
-            "component" : "Dashboard",
             "label" : "Dashboard",
             "icon" : "dashboard",
             "path" : "/",
-            "access" : "Visitor",
             "exact" : true
         },
         {
             "key" : "Example",
-            "component" : "#",
             "label" : "Example",
             "icon" : "experiment",
             "path" : "/example",
-            "access" : "Admin",
             "submenu" : [
                 {
-                    "key" : "Example1",
-                    "component" : "Example1",
-                    "label" : "Sample 1",
-                    "path" : "/sample1",
-                    "access" : "Admin"
+                    "key" : "Sub-1",
+                    "label" : "Sub 1",
+                    "path" : "/sub1",
+                    "submenu" : [
+                        {
+                            "key" : "Sub-1-1",
+                            "label" : "Sub-1-1",
+                            "path" : "/sub-1-1",
+                        }
+                    ]
                 },
                 {
-                    "key" : "Example2",
-                    "component" : "Example2",
-                    "label" : "Sample 2",
-                    "path" : "/sample2",
-                    "access" : "Admin"
+                    "key" : "Sub-2",
+                    "label" : "Sub-2",
+                    "path" : "/sub-2",
+                    "submenu" : [
+                        {
+                            "key" : "Sub-2-1",
+                            "label" : "Sub-2-1",
+                            "path" : "/sub-2-1",
+                        }
+                    ]
+                },
+                {
+                    "key" : "Sub-3",
+                    "label" : "Sub-3",
+                    "path" : "/sub-3",
+                },
+                {
+                    "key" : "Sub-4",
+                    "label" : "Sub-4",
+                    "path" : "/sub-4",
+                    "submenu" : [
+                        {
+                            "key" : "Sub-4-1",
+                            "label" : "Sub-4-1",
+                            "path" : "/sub-4-1",
+                        },
+                        {
+                            "key" : "Sub-4-2",
+                            "label" : "Sub-4-2",
+                            "path" : "/sub-4-2",
+                        }
+                    ]
                 }
             ]
         }
@@ -69,4 +97,5 @@ export const Example = () => {
         </Router>
     );
 };
+
 ```
