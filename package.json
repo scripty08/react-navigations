@@ -1,6 +1,6 @@
 {
   "name": "@scripty/react-navigations",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Danijel Garic",
   "license": "MIT",
   "description": "",
@@ -23,6 +23,7 @@
     "compile": "node node_modules/@babel/cli/bin/babel.js src --out-dir lib --copy-files"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",

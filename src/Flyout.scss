@@ -34,7 +34,7 @@ nav.flyout {
             }
 
             a {
-                padding-left: 15px;
+                padding-left: 0;
                 color: #000;
                 text-decoration: none;
                 font-family: sans-serif;
@@ -54,12 +54,16 @@ nav.flyout {
                 li {
                     text-align: left;
                     a {
-                        padding-left: 15px;
+                        padding-left: 25px;
                         color: #000;
                         text-decoration: none;
                         font-family: sans-serif;
                         display: block;
-                        span {
+                        span.icon {
+                            display: inline-block;
+                            left: 5px
+                        }
+                        span.arrow {
                             display: inline-block;
                             position: absolute;
                             right: 5px;

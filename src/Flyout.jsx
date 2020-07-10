@@ -2,7 +2,7 @@ import React from 'react';
 import './Flyout.scss';
 import { NavLink, matchPath } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
-import { IconExpandDown, IconExpandRight } from './Icon';
+import { getAntdIcon, IconExpandDown, IconExpandRight } from './Icon';
 
 export const Flyout = (props) => {
 
@@ -13,26 +13,26 @@ export const Flyout = (props) => {
         color,
         width,
         height,
-        style
+        style,
     } = props;
 
     const onItemClick = (key, selectedKeys) => {
         onClick(key, selectedKeys);
     }
 
-    const renderMenuItem = ({ key, label, path, exact, selectedKeys }) => (
+    const renderMenuItem = ({ key, label, path, exact, selectedKeys, icon }) => (
         <li key={key}>
             <NavLink onClick={onItemClick.bind(null, key, selectedKeys)} exact={exact} to={path}>
-                {label}
+                <span className={'icon'}>{icon}</span> {label}
             </NavLink>
         </li>
     );
 
     const renderMenu = (routes, parentPath = '', index = 0) => {
-
-        return routes.map((route, idx) => {
+        return routes.map((route) => {
             const { key, label, path, url, icon, submenu, exact } = route;
             const currentPath = parentPath + path;
+            const antIcon = getAntdIcon(icon);
 
             selectedKeys = getActiveRoutes(routes, window.location, parentPath);
 
@@ -53,7 +53,7 @@ export const Flyout = (props) => {
 
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className={activeClass}>{label} <span>{expandIcon}</span></a>
+                        <a href="#" className={activeClass}><span className={'icon'}>{antIcon}</span> {label} <span className={'arrow'}>{expandIcon}</span></a>
                         <ul className={item}>
                             {renderMenu(submenu, currentPath, index)}
                         </ul>
@@ -61,7 +61,7 @@ export const Flyout = (props) => {
                 );
             }
 
-            return renderMenuItem({ key, label, path: currentPath, url, icon, exact, selectedKeys });
+            return renderMenuItem({ key, label, path: currentPath, url, icon: antIcon, exact, selectedKeys });
         })
     };
 
@@ -105,6 +105,7 @@ export const getActiveRoutes = (routes, location, parentPath = '') => {
 
 Flyout.defaultProps = {
     onClick: () => {},
+    routes: [],
     color: {
         backgroundColor: '',
         backgroundHoverColor: '',
@@ -118,6 +119,7 @@ Flyout.defaultProps = {
 };
 
 Flyout.propTypes = {
+    routes: PropTypes.array,
     onClick: PropTypes.func,
     color: PropTypes.object,
     selectedKeys: PropTypes.array,
