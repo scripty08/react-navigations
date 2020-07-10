@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Flyout } from '@src';
+import { Flyout } from '../../src/Flyout';
+
 
 export const Example = () => {
 

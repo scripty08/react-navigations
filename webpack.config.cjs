@@ -11,7 +11,6 @@ module.exports = {
         alias: {
             'react-dom': '@hot-loader/react-dom',
             '@client': CLIENT_DIR,
-            '@src': SRC_DIR
         }
     },
     output: {

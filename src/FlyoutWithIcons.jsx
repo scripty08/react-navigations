@@ -3,8 +3,9 @@ import './Flyout.scss';
 import { NavLink, matchPath } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 import { IconExpandDown, IconExpandRight } from './Icon';
+import { getAntdIcon } from '../lib/Icon';
 
-export const Flyout = (props) => {
+export const FlyoutWithIcons = (props) => {
 
     let {
         routes,
@@ -23,7 +24,7 @@ export const Flyout = (props) => {
     const renderMenuItem = ({ key, label, path, exact, selectedKeys, icon }) => (
         <li key={key}>
             <NavLink onClick={onItemClick.bind(null, key, selectedKeys)} exact={exact} to={path}>
-                {label}
+                <span className={'icon'}>{icon}</span> {label}
             </NavLink>
         </li>
     );
@@ -32,6 +33,7 @@ export const Flyout = (props) => {
         return routes.map((route) => {
             const { key, label, path, url, icon, submenu, exact } = route;
             const currentPath = parentPath + path;
+            const antIcon = getAntdIcon(icon);
 
             selectedKeys = getActiveRoutes(routes, window.location, parentPath);
 
@@ -52,7 +54,7 @@ export const Flyout = (props) => {
 
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className={activeClass}> {label} <span className={'arrow'}>{expandIcon}</span></a>
+                        <a href="#" className={activeClass}><span className={'icon'}>{antIcon}</span> {label} <span className={'arrow'}>{expandIcon}</span></a>
                         <ul className={item}>
                             {renderMenu(submenu, currentPath, index)}
                         </ul>
@@ -60,7 +62,7 @@ export const Flyout = (props) => {
                 );
             }
 
-            return renderMenuItem({ key, label, path: currentPath, url, icon, exact, selectedKeys });
+            return renderMenuItem({ key, label, path: currentPath, url, icon: antIcon, exact, selectedKeys });
         })
     };
 
@@ -102,7 +104,7 @@ export const getActiveRoutes = (routes, location, parentPath = '') => {
     return activeRoutes;
 };
 
-Flyout.defaultProps = {
+FlyoutWithIcons.defaultProps = {
     onClick: () => {},
     routes: [],
     color: {
@@ -117,7 +119,7 @@ Flyout.defaultProps = {
     style: {}
 };
 
-Flyout.propTypes = {
+FlyoutWithIcons.propTypes = {
     routes: PropTypes.array,
     onClick: PropTypes.func,
     color: PropTypes.object,
