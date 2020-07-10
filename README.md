@@ -4,7 +4,7 @@
 
 lightweight react navigation components.
 
-![alt text](./flyout.png "@scripty/react-navigations")
+![alt text](./navigations.png "@scripty/react-navigations")
 
 # Usage
 ```bash
