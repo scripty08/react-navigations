@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Flyout } from '../../src/Flyout';
+import { FlyoutWithIcons } from '../../src/FlyoutWithIcons';
 
 
 export const Example = () => {
@@ -86,7 +86,7 @@ export const Example = () => {
     return (
         <Router>
             <h2>Flyout</h2>
-            <Flyout onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
+            <FlyoutWithIcons onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
         </Router>
     );
 };

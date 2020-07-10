@@ -3,7 +3,7 @@ import './Flyout.scss';
 import { NavLink, matchPath } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 import { IconExpandDown, IconExpandRight } from './Icon';
-import { getAntdIcon } from '../lib/Icon';
+import { getAntdIcon } from './AntdIcons';
 
 export const FlyoutWithIcons = (props) => {
 

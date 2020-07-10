@@ -16,7 +16,7 @@ https://ant.design/components/icon/
 
 Just add the name of the desired icon as a string property (see example).
 
-#####if you want a leightweighter version than use "Flyout"-Component instead of "FlyoutWithIcons"-Component.
+#####if you want a leightweighter version, use "Flyout"-Component instead of "FlyoutWithIcons"-Component.
 
 ##### Client: Example.jsx
 
