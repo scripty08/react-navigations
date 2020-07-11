@@ -4,6 +4,7 @@ import { NavLink, matchPath } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 import { IconExpandDown, IconExpandRight } from './Icon';
 import { getAntdIcon } from './AntdIcons';
+import { getSelectedKeys } from './helper';
 
 export const FlyoutWithIcons = (props) => {
 
@@ -35,7 +36,7 @@ export const FlyoutWithIcons = (props) => {
             const currentPath = parentPath + path;
             const antIcon = getAntdIcon(icon);
 
-            selectedKeys = getActiveRoutes(routes, window.location, parentPath);
+            selectedKeys = getSelectedKeys(routes, window.location, parentPath);
 
             const isActive = selectedKeys.includes(key);
             const activeClass = (isActive) ? 'dropbtn active' : 'dropbtn';
@@ -54,7 +55,9 @@ export const FlyoutWithIcons = (props) => {
 
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className={activeClass}><span className={'icon'}>{antIcon}</span> {label} <span className={'arrow'}>{expandIcon}</span></a>
+                        <NavLink onClick={onItemClick.bind(null, key, selectedKeys)} className={activeClass} to={currentPath}>
+                            <span className={'icon'}>{antIcon}</span> {label} <span className={'arrow'}>{expandIcon}</span>
+                        </NavLink>
                         <ul className={item}>
                             {renderMenu(submenu, currentPath, index)}
                         </ul>
@@ -73,35 +76,6 @@ export const FlyoutWithIcons = (props) => {
             </ul>
         </nav>
     )
-};
-
-export const getActiveRoutes = (routes, location, parentPath = '') => {
-    let activeRoutes = [];
-
-    routes.forEach(route => {
-        const currentPath = parentPath + route.path;
-
-        const match = matchPath(location.pathname, {
-            path: currentPath,
-            exact: route.exact || false,
-            strict: route.strict || false
-        });
-
-        if (match) {
-            activeRoutes.push(route.key);
-        }
-
-        const subitem = route.submenu || route.group;
-
-        if (subitem) {
-            activeRoutes = [
-                ...activeRoutes,
-                ...getActiveRoutes(subitem, location, route.group ? parentPath : currentPath)
-            ];
-        }
-    });
-
-    return activeRoutes;
 };
 
 FlyoutWithIcons.defaultProps = {

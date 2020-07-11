@@ -3,6 +3,7 @@ import './Flyout.scss';
 import { NavLink, matchPath } from 'react-router-dom';
 import * as PropTypes from 'prop-types';
 import { IconExpandDown, IconExpandRight } from './Icon';
+import { getSelectedKeys } from './helper';
 
 export const Flyout = (props) => {
 
@@ -33,7 +34,7 @@ export const Flyout = (props) => {
             const { key, label, path, url, icon, submenu, exact } = route;
             const currentPath = parentPath + path;
 
-            selectedKeys = getActiveRoutes(routes, window.location, parentPath);
+            selectedKeys = getSelectedKeys(routes, window.location, parentPath);
 
             const isActive = selectedKeys.includes(key);
             const activeClass = (isActive) ? 'dropbtn active' : 'dropbtn';
@@ -52,7 +53,9 @@ export const Flyout = (props) => {
 
                 return (
                     <li key={key} className={'dropdown'}>
-                        <a href="#" className={activeClass}> {label} <span className={'arrow'}>{expandIcon}</span></a>
+                        <NavLink className={activeClass} to={path}>
+                            {label} <span className={'arrow'}>{expandIcon}</span>
+                        </NavLink>
                         <ul className={item}>
                             {renderMenu(submenu, currentPath, index)}
                         </ul>
@@ -71,35 +74,6 @@ export const Flyout = (props) => {
             </ul>
         </nav>
     )
-};
-
-export const getActiveRoutes = (routes, location, parentPath = '') => {
-    let activeRoutes = [];
-
-    routes.forEach(route => {
-        const currentPath = parentPath + route.path;
-
-        const match = matchPath(location.pathname, {
-            path: currentPath,
-            exact: route.exact || false,
-            strict: route.strict || false
-        });
-
-        if (match) {
-            activeRoutes.push(route.key);
-        }
-
-        const subitem = route.submenu || route.group;
-
-        if (subitem) {
-            activeRoutes = [
-                ...activeRoutes,
-                ...getActiveRoutes(subitem, location, route.group ? parentPath : currentPath)
-            ];
-        }
-    });
-
-    return activeRoutes;
 };
 
 Flyout.defaultProps = {

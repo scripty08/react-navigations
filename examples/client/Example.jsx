@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { FlyoutWithIcons } from '../../src/FlyoutWithIcons';
-
+import { Breadcrumbs } from '../../src/Breadcrumbs';
 
 export const Example = () => {
 
@@ -87,6 +87,8 @@ export const Example = () => {
         <Router>
             <h2>Flyout</h2>
             <FlyoutWithIcons onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
+            <h2>Breadcrumbs</h2>
+            <Breadcrumbs onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
         </Router>
     );
 };
