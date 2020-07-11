@@ -120,10 +120,19 @@ Name              | Description                                         |  Size 
 Flyout            |  3 Level Flyout Navigation                          | 155 kb (unzipped with all dependencies)
 FlyoutWithIcons   |  3 Level Flyout Navigation with Antd-Icons library  | 999 kb (unzipped with all dependencies)
 
-# Properties
+# Navigation Properties
 
 Property           | Type     |  Default  |
 ------------------ |--------- |-----------
 onClick            | Function |
 routes             | Array    |
 selectedKeys       | Array    |
+
+# Route Properties
+
+Property           | Type     |  Description             |
+------------------ |--------- |--------------------------|
+key                | String   | unique id key (required) |
+label              | String   | (required)               |
+path               | String   | (required)               |
+icon               | String   | (optional)               |
