@@ -113,3 +113,17 @@ export const Example = () => {
     );
 };
 ```
+# Components
+
+Name              | Description                                         |  Size  |
+----------------- |---------------------------------------------------- |-----------
+Flyout            |  3 Level Flyout Navigation                          | 155 kb (unzipped with all dependencies)
+FlyoutWithIcons   |  3 Level Flyout Navigation with Antd-Icons library  | 999 kb (unzipped with all dependencies)
+
+# Properties
+
+Property           | Type     |  Default  |
+------------------ |--------- |-----------
+onClick            | Function |
+routes             | Array    |
+selectedKeys       | Array    |
