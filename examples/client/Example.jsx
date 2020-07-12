@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { FlyoutWithIcons } from '../../src/FlyoutWithIcons';
 import { Breadcrumbs } from '../../src/Breadcrumbs';
+import { FlyoutUser } from '../../src/FlyoutUser';
+import { FlyoutUserWithIcons } from '../../src/FlyoutUserWithIcons';
 
 export const Example = () => {
 
@@ -81,14 +83,59 @@ export const Example = () => {
                 }
             ]
         }
-    ]
+    ];
+
+    const userMenuRoutes = [
+        {
+            "key" : "UserMenu",
+            "label" : "Login",
+            "path" : "/login",
+            "exact" : true,
+            "submenu" : [
+                {
+                    "key" : "Profile",
+                    "label" : "Profile",
+                    "path" : "/profile",
+                    "icon" : "UserOutlined",
+                },
+                {
+                    "key" : "Settings",
+                    "label" : "Settings",
+                    "path" : "/settings",
+                    "icon" : "SettingOutlined",
+                }
+            ]
+        }
+    ];
+
+    const loggedInUser = {
+        username: 'Danijel',
+        loggedIn: true,
+        avatar: {
+            url: 'https://s.gravatar.com/avatar/d363403799aa4b4de34c36bc290ebe12?size=50&default=retro'
+        }
+    };
+
+    const loggedOutUser = {
+        loggedIn: false,
+    };
 
     return (
         <Router>
             <h2>Breadcrumbs</h2>
-            <Breadcrumbs onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
+            <Breadcrumbs onClick={onClick} routes={[ ...routes, ...userMenuRoutes ]} selectedKeys={selectedKeys} />
+
             <h2>Flyout</h2>
             <FlyoutWithIcons onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
+
+            <h2>Flyout logged in user</h2>
+            <FlyoutUser loginPath={'/login'} user={loggedInUser} onClick={onClick} routes={userMenuRoutes} selectedKeys={selectedKeys} />
+
+            <h2>Flyout logged in user with icons</h2>
+            <FlyoutUserWithIcons user={loggedInUser} onClick={onClick} routes={userMenuRoutes} selectedKeys={selectedKeys} />
+
+            <h2>Flyout logged out user</h2>
+            <FlyoutUser loginPath={'/login'} user={loggedOutUser} onClick={onClick} routes={userMenuRoutes} selectedKeys={selectedKeys} />
         </Router>
     );
 };
