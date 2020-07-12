@@ -1,6 +1,6 @@
 {
   "name": "@scripty/react-navigations",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "author": "Danijel Garic",
   "license": "MIT",
   "description": "",
@@ -9,7 +9,9 @@
     "react",
     "navigations",
     "react navigations",
-    "react components"
+    "react components",
+    "react-breadcrumbs",
+    "breadcrumbs"
   ],
   "extension": "js",
   "jsnext:main": "src/index.jsx",
