@@ -18,8 +18,6 @@ export const FlyoutUserWithIcons = (props) => {
 
     const { loggedIn } = user;
 
-    console.log(loggedIn, ' loggedIn <------------');
-
     const onItemClick = (key, selectedKeys) => {
         onClick(key, selectedKeys);
     }
@@ -51,9 +49,10 @@ export const FlyoutUserWithIcons = (props) => {
                 if (index === 0) {
                     if (loggedIn) {
                         label = <Avatar user={user}/>
+                        expandIcon = '';
                     }
-                    item = 'item-' + index;
                     expandIcon = <IconExpandDown/>;
+                    item = 'item-' + index;
                 }
 
                 index = index + 1;
