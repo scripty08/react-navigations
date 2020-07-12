@@ -23,10 +23,10 @@ Just add the name of the desired icon as a string property (see example).
 ```javascript
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { FlyoutWithIcons } from '@scripty/react-navigations/FlyoutWithIcons';
-import { Breadcrumbs } from '@scripty/react-navigations/Breadcrumbs';
-import { FlyoutUser } from '@scripty/react-navigations/FlyoutUser';
-import { FlyoutUserWithIcons } from '@scripty/react-navigations/FlyoutUserWithIcons';
+import { FlyoutWithIcons } from '@scripty/react-navigations/lib/FlyoutWithIcons';
+import { Breadcrumbs } from '@scripty/react-navigations/lib/Breadcrumbs';
+import { FlyoutUser } from '@scripty/react-navigations/lib/FlyoutUser';
+import { FlyoutUserWithIcons } from '@scripty/react-navigations/lib/FlyoutUserWithIcons';
 
 export const Example = () => {
 
