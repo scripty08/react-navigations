@@ -46,12 +46,15 @@ export const FlyoutUser = (props) => {
 
                 let item = 'item';
                 if (index === 0) {
+
+                    expandIcon = '';
+
                     if (loggedIn) {
                         label = <Avatar user={user}/>
+                        expandIcon = <IconExpandDown/>;
                     }
-                    label = <Avatar user={user}/>
+
                     item = 'item-' + index;
-                    expandIcon = <IconExpandDown/>;
                 }
 
                 index = index + 1;

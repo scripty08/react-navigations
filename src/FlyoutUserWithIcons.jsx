@@ -47,11 +47,12 @@ export const FlyoutUserWithIcons = (props) => {
 
                 let item = 'item';
                 if (index === 0) {
+                    expandIcon = '';
                     if (loggedIn) {
                         label = <Avatar user={user}/>
-                        expandIcon = '';
+                        expandIcon = <IconExpandDown/>;
                     }
-                    expandIcon = <IconExpandDown/>;
+
                     item = 'item-' + index;
                 }
 
