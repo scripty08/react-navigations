@@ -1,11 +1,11 @@
 .breadcrumbs {
     border-bottom: 1px solid #e2e2e2;
     background-color: #fafafa;
-    height: 40px;
     padding: 10px;
 
     ul {
-
+        padding: 0;
+        margin: 0;
         li {
             list-style: none;
             display: inline-block;

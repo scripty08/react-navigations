@@ -4,7 +4,7 @@
 
 lightweight react navigation components.
 
-![alt text](./navigations-with-icons.png "@scripty/react-navigations")
+![alt text](./navigations.png "@scripty/react-navigations")
 
 # Usage
 ```bash
@@ -24,6 +24,7 @@ Just add the name of the desired icon as a string property (see example).
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { FlyoutWithIcons } from '@scripty/react-navigations/FlyoutWithIcons';
+import { Breadcrumbs } from '@scripty/react-navigations/Breadcrumbs';
 
 export const Example = () => {
 
@@ -107,6 +108,8 @@ export const Example = () => {
 
     return (
         <Router>
+            <h2>Breadcrumbs</h2>
+            <Breadcrumbs onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
             <h2>Flyout</h2>
             <FlyoutWithIcons onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
         </Router>
@@ -115,10 +118,11 @@ export const Example = () => {
 ```
 # Components
 
-Name              | Description                                         |  Size  |
------------------ |---------------------------------------------------- |-----------
-Flyout            |  3 Level Flyout Navigation                          | 155 kb (unzipped with all dependencies)
-FlyoutWithIcons   |  3 Level Flyout Navigation with Antd-Icons library  | 999 kb (unzipped with all dependencies)
+Name              | Description                                         |
+----------------- |---------------------------------------------------- |
+Flyout            |  3 Level Flyout Navigation                          |
+FlyoutWithIcons   |  3 Level Flyout Navigation with Antd-Icons library  |
+Breadcrumbs       |  Breadcrumbs based on given routes                  |
 
 # Navigation Properties
 
@@ -136,3 +140,11 @@ key                | String   | unique id key (required) |
 label              | String   | (required)               |
 path               | String   | (required)               |
 icon               | String   | (optional)               |
+
+# Breadcrumbs Properties
+
+Property           | Type     |  Default  |
+------------------ |--------- |-----------
+onClick            | Function |
+routes             | Array    |
+selectedKeys       | Array    |

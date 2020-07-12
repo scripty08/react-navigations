@@ -85,10 +85,10 @@ export const Example = () => {
 
     return (
         <Router>
-            <h2>Flyout</h2>
-            <FlyoutWithIcons onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
             <h2>Breadcrumbs</h2>
             <Breadcrumbs onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
+            <h2>Flyout</h2>
+            <FlyoutWithIcons onClick={onClick} routes={routes} selectedKeys={selectedKeys} />
         </Router>
     );
 };
