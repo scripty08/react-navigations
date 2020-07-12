@@ -5,7 +5,6 @@ import './Avatar.scss';
 
 export const Avatar = (props) => {
     const { user } = props;
-    console.log(user, ' ss <------------');
     const { avatar, alt, gender } = user;
     const { url } = avatar;
 
