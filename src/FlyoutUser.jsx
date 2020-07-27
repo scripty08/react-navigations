@@ -64,9 +64,11 @@ export const FlyoutUser = (props) => {
                         <NavLink className={activeClass} to={path}>
                             {label} <span className={'arrow'}>{expandIcon}</span>
                         </NavLink>
-                        <ul className={item}>
-                            {renderMenu(submenu, currentPath, index, user)}
-                        </ul>
+                        {
+                            (user.loggedIn) ? <ul className={item}>
+                                {renderMenu(submenu, currentPath, index, user)}
+                            </ul> : null
+                        }
                     </li>
                 );
             }

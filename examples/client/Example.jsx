@@ -110,7 +110,7 @@ export const Example = () => {
 
     const loggedInUser = {
         username: 'Danijel',
-        loggedIn: true,
+        loggedIn: false,
         avatar: {
             url: 'https://s.gravatar.com/avatar/d363403799aa4b4de34c36bc290ebe12?size=50&default=retro'
         }

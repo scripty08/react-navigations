@@ -63,9 +63,12 @@ export const FlyoutUserWithIcons = (props) => {
                         <NavLink onClick={onItemClick.bind(null, key, selectedKeys)} className={activeClass} to={currentPath}>
                             <span className={'icon'}>{antIcon}</span> {label} <span className={'arrow'}>{expandIcon}</span>
                         </NavLink>
-                        <ul className={item}>
-                            {renderMenu(submenu, currentPath, index, user)}
-                        </ul>
+                        {
+                            (user.loggedIn) ? <ul className={item}>
+                                {renderMenu(submenu, currentPath, index, user)}
+                            </ul> : null
+                        }
+
                     </li>
                 );
             }
