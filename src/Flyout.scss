@@ -16,6 +16,8 @@ nav.flyout {
         z-index: 3000;
 
         li {
+            padding: 0;
+            margin: 0;
             width: 160px;
             background: #fff;
             float: left;
@@ -36,7 +38,6 @@ nav.flyout {
 
             a {
                 padding-left: 0;
-                color: #000;
                 text-decoration: none;
                 font-family: sans-serif;
                 display: block;
@@ -56,7 +57,6 @@ nav.flyout {
                     text-align: left;
                     a {
                         padding-left: 25px;
-                        color: #000;
                         text-decoration: none;
                         font-family: sans-serif;
                         display: block;

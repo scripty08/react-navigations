@@ -3,3 +3,4 @@ export * from './FlyoutWithIcons';
 export * from './FlyoutUserWithIcons';
 export * from './FlyoutUser';
 export * from './Breadcrumbs';
+export * from './helper';
